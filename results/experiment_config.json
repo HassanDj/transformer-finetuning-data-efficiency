@@ -1,0 +1,55 @@
+{
+  "checkpoint": "distilbert/distilbert-base-uncased",
+  "dataset": "ag_news",
+  "seeds": [
+    42,
+    123,
+    2027
+  ],
+  "budgets": [
+    100,
+    1000,
+    5000
+  ],
+  "methods": [
+    "linear",
+    "full",
+    "lora"
+  ],
+  "max_length": 128,
+  "batch_size": 16,
+  "epochs": 3,
+  "validation_per_class": 500,
+  "learning_rates": {
+    "linear": 0.001,
+    "full": 2e-05,
+    "lora": 0.0002
+  },
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.1,
+    "targets": [
+      "q_lin",
+      "v_lin"
+    ]
+  },
+  "baseline": {
+    "model": "TF-IDF + LogisticRegression",
+    "max_features": 30000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "C": 1.0
+  },
+  "versions": {
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "transformers": "4.57.6",
+    "peft": "0.21.2",
+    "datasets": "4.8.5",
+    "sklearn": "1.6.1"
+  },
+  "gpu": "Tesla T4"
+}

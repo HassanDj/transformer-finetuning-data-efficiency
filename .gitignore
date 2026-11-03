@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.ipynb
+notebooks/
+*.pt
+*.pth
+*.ckpt
+*.joblib
+checkpoints/
+.env
+.DS_Store
